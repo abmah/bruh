@@ -1,0 +1,315 @@
+/* test page */
+.main-app {
+  height: 100vh;
+  display: flex;
+  background-color: #1b1e28;
+}
+
+.side-bar {
+  width: 0px;
+  height: 100vh;
+  position: relative;
+  bottom: 0;
+  background-color: #1b1e28;
+  transition: 0.3s ease-in-out;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.available-chatrooms {
+  font-size: 0.5em;
+  transition: 0.3s ease-in-out;
+}
+
+.side-button {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  display: none;
+}
+
+.side-button:checked ~ .side-bar {
+  width: 200px;
+}
+
+.side-button-label {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 100px;
+  position: fixed;
+  transition: all 0.1s ease-in;
+  z-index: 1;
+}
+
+.side-button-label::before {
+  content: "";
+  transition: all 350;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  transform: rotate(45deg);
+  transition: all 200ms ease-in;
+  border: 10px solid rgba(255, 255, 255, 0.308);
+  border-bottom: none;
+  border-left: none;
+  animation-name: in-out;
+  animation-duration: 350ms;
+  animation-fill-mode: forwards;
+}
+
+.side-button:checked + .side-button-label::before {
+  transform: rotate(225deg);
+  left: 140px;
+}
+
+.side-button {
+  height: 22px;
+  width: 122px;
+  will-change: contents;
+}
+
+.chatroom-name-input {
+  width: 90%;
+  margin: 4px;
+  height: 30px;
+  transition: 0.3s ease-in-out;
+  background-color: transparent;
+  border: 1px rgba(128, 128, 128, 0.222) solid;
+  border-radius: 5px;
+  color: white;
+}
+
+.chatroom-name {
+  cursor: pointer;
+}
+
+.create-chatroom-button {
+  width: 50%;
+  height: 30px;
+  margin: 4px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  background-color: gray;
+  border: 1px rgba(128, 128, 128, 0.222) solid;
+  border-radius: 10px;
+}
+.create-chatroom-button:hover {
+  background-color: #54565d;
+}
+.create-chatroom-button:active {
+  transform: scale(0.95);
+}
+
+.other {
+  width: 100vw;
+  transition: 0.1s ease-in-out;
+}
+
+.chatroom-name {
+  color: #767e88;
+  padding: 12px;
+
+  animation-fill-mode: forwards;
+  box-sizing: border-box;
+  transition: 0.1s ease-in-out;
+}
+
+.chatrooms {
+  animation-name: slide-left;
+  animation-duration: 350ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.chatroom-name:active {
+  transform: scale(0.95);
+}
+
+.chatroom-name:hover {
+  color: white;
+  border-radius: 10px;
+  background-color: #676767;
+}
+
+.side-bar:hover .chatroom-name {
+  opacity: 1;
+}
+
+.loading-balls {
+  transition: 0.3s ease-in-out;
+}
+
+.side-bar:hover .loading-balls {
+  opacity: 1;
+  width: 100%;
+}
+
+.side-bar:hover .chatroom-name-input {
+  display: block;
+}
+
+.side-bar:hover .create-chatroom-button {
+  display: block;
+}
+
+@media screen and (min-width: 600px) {
+  .side-bar {
+    position: fixed;
+    width: 200px;
+  }
+  .other {
+    margin-left: 200px;
+  }
+  .loading-balls {
+    opacity: 1;
+  }
+  .chatroom-name {
+    opacity: 1;
+  }
+  .chatroom-name-input {
+    opacity: 1;
+  }
+  .create-chatroom-button {
+    opacity: 1;
+  }
+  .chatroom-name-input {
+    display: block;
+  }
+  .create-chatroom-button {
+    display: block;
+  }
+  .side-button {
+    display: none;
+  }
+  .side-button-label {
+    display: none;
+  }
+}
+
+.create-chatroom-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.chat-box {
+  overflow: scroll;
+  height: 92vh;
+  color: #c9d6d9;
+  background-color: #1d1f23;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.chatroom-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4px;
+}
+
+.message {
+  margin: 7px;
+}
+
+.message-inner {
+  display: inline-block;
+  background-color: rgb(14, 120, 139);
+  padding: 1em;
+  border-radius: 10px;
+  animation-name: pop;
+  animation-duration: 350ms;
+  animation-fill-mode: forwards;
+  border: 3px solid rgb(46, 96, 106);
+  border-top: none;
+  border-left: none;
+}
+.self-message {
+  margin: 7px;
+  display: flex;
+  justify-content: flex-end;
+}
+.green-message {
+  background-color: rgb(14, 128, 44);
+  border: 3px solid rgb(35, 85, 58);
+  border-top: none;
+  border-right: none;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.send-message-form {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.send-message-input {
+  background-color: #40444b;
+  color: #dbdcdd;
+  width: 90%;
+  border-radius: 5px;
+  border: none;
+  padding: 12px;
+  box-sizing: border-box;
+  transition: 0.3s ease-in-out;
+}
+
+.message-new {
+  animation-name: rise;
+  animation-duration: 350ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rise {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.loading-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.enter-chatroom {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  font-size: 2em;
+  opacity: 0.6;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
