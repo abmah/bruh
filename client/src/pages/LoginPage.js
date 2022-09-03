@@ -17,11 +17,12 @@ export default function TestPage(props) {
 
   const emailRef = React.createRef();
   const passwordRef = React.createRef();
+  const URL = "https://dizcorddds.herokuapp.com";
   const loginUser = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     axios
-      .post("https://dizcorddds.herokuapp.com/user/login", {
+      .post(`${URL}/user/login`, {
         email,
         password,
       })
