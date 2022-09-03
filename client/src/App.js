@@ -10,10 +10,10 @@ import React from "react";
 import DeleteJwt from "./pages/DeleteJwt";
 function App() {
   const [socket, setSocket] = React.useState(null);
+  const URL = "https://dizcorddds.herokuapp.com";
 
   const setupSocket = () => {
     const token = localStorage.getItem("DC_Token");
-    const URL = "https://dizcorddds.herokuapp.com";
     if (token && !socket) {
       const newSocket = io(`${URL}`, {
         query: {
