@@ -18,9 +18,11 @@ export default function DashboardPage({ socket }) {
   const [prevMessages, setPrevMessages] = React.useState([]);
   const messagesEndRef = React.useRef(null);
 
+  const URL = "https://dizcorddds.herokuapp.com";
+
   const getChatrooms = () => {
     axios
-      .get("https://dizcorddds.herokuapp.com/chatroom", {
+      .get(`${URL}/chatroom`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("DC_Token")}`,
         },
@@ -35,7 +37,7 @@ export default function DashboardPage({ socket }) {
 
   const getPreviousMessages = () => {
     axios
-      .get("https://dizcorddds.herokuapp.com/chatroom/messages", {
+      .get(`${URL}/chatroom/messages`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("DC_Token")}`,
         },
@@ -62,7 +64,7 @@ export default function DashboardPage({ socket }) {
     e.preventDefault();
     axios
       .post(
-        "https://dizcorddds.herokuapp.com/chatroom/",
+        `${URL}/chatroom`,
         {
           name: chatroomRef.current.value,
         },

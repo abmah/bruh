@@ -13,9 +13,9 @@ function App() {
 
   const setupSocket = () => {
     const token = localStorage.getItem("DC_Token");
-
+    const URL = "https://dizcorddds.herokuapp.com";
     if (token && !socket) {
-      const newSocket = io("https://dizcorddds.herokuapp.com/", {
+      const newSocket = io(`${URL}`, {
         query: {
           token,
         },
@@ -56,8 +56,6 @@ function App() {
         <Route path="/login" element={<LoginPageWrapper />} exact />
         <Route path="/dashboard" element={<DashboardPageWrapper />} exact />
         <Route path="/register" element={<RegisterPage />} exact />
-        {/* <Route path="/chatroom/:id" element={<ChatroomPageWrapper />} exact /> */}
-        {/* <Route path="/test" element={<TestPageWrapper />} exact /> */}
         <Route path="/reset" element={<DeleteJwt />} exact />
       </Routes>
     </BrowserRouter>

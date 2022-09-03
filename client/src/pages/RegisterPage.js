@@ -7,7 +7,7 @@ export default function RegisterPage() {
   const nameRef = React.createRef();
   const emailRef = React.createRef();
   const passwordRef = React.createRef();
-
+  const URL = "https://dizcorddds.herokuapp.com";
   const navigate = useNavigate();
 
   const registerUser = () => {
@@ -15,7 +15,7 @@ export default function RegisterPage() {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     axios
-      .post("https://dizcorddds.herokuapp.com/user/register", {
+      .post(`${URL}/user/register`, {
         name,
         email,
         password,
