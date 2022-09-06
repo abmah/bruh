@@ -29,28 +29,28 @@ export default function Card() {
               <strong>mark:&ensp;</strong>hey are you worried about tomorow?
             </div>
           </div>
-          <div className="side-bar-message-container1">
+          <div className="side-bar-message-container1 flex-end ">
             <div className="blue-div-message x-green">
               no? whats going on tommoroz?
             </div>
           </div>
-          <div className="side-bar-message-container1">
+          <div className="side-bar-message-container1 flex-end ">
             <div className="blue-div-message x-green">hello?</div>
           </div>
-          <div className="side-bar-message-container1">
-            <div className="blue-div-message x-green">Hellooo???</div>
+          <div className="side-bar-message-container1 flex-end ">
+            <div className="blue-div-message x-green ">Hellooo???</div>
           </div>
-          <div className="side-bar-message-container1">
+          <div className="side-bar-message-container1 flex-end ">
             <div className="blue-div-message x-green">
               bro you cant just say that and leave
             </div>
           </div>
-          <div className="side-bar-message-container1">
+          <div className="side-bar-message-container1 ">
             <div className="blue-div-message">
               <strong>mark:&ensp;</strong>lol
             </div>
           </div>
-          <div className="side-bar-message-container1">
+          <div className="side-bar-message-container1 flex-end ">
             <div className="blue-div-message x-green">
               whats going on tommoro??
             </div>

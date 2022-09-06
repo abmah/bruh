@@ -94,6 +94,11 @@ export default function DashboardPage({ socket }) {
       });
 
       messageRef.current.value = "";
+      setMessageBeingTyped("");
+      socket.emit("typingMessage", {
+        chatroomId,
+        message: "",
+      });
     }
   };
 
@@ -130,7 +135,7 @@ export default function DashboardPage({ socket }) {
     //eslint-disable-next-line
   }, [chatroomId]);
   React.useEffect(() => {
-    messagesEndRef.current?.scrollIntoView();
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
   // <input type="checkbox" id="toggle" className="toggle--checkbox" />
   // <label for="toggle" className="toggle--label">
@@ -188,7 +193,11 @@ export default function DashboardPage({ socket }) {
 
   function joinChatRoom(id) {
     setChatroomId(id);
-    getPreviousMessages();
+    setMessageBeingTyped("");
+    socket.emit("typingMessage", {
+      chatroomId,
+      message: "",
+    });
     setMessages([]);
   }
 
@@ -206,6 +215,27 @@ export default function DashboardPage({ socket }) {
       </div>
     ))
     .reverse();
+
+  const typingMessage = () => {
+    if (socket) {
+      socket.emit("typingMessage", {
+        chatroomId,
+        message: messageRef.current.value,
+      });
+    }
+  };
+  //.............................................
+
+  const [messageBeingTyped, setMessageBeingTyped] = React.useState("");
+
+  if (socket) {
+    socket.on("typing", (message) => {
+      setMessageBeingTyped(message);
+    });
+  }
+  React.useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messageBeingTyped]);
 
   return (
     <div className="main-app">
@@ -262,6 +292,17 @@ export default function DashboardPage({ socket }) {
           {chatroomPreviousMessages}
           {chatroomNewMessages}
 
+          {chatroomId &&
+            messageBeingTyped.message &&
+            messageBeingTyped.userId !== userId && (
+              <div className="message">
+                <div className="message-inner gray-message">
+                  <strong>{messageBeingTyped.name} is typing:</strong>
+                  <div>{messageBeingTyped.message}</div>
+                </div>
+              </div>
+            )}
+
           {!chatroomId && (
             <div className="enter-chatroom">
               Enter a chatroom to start chatting!
@@ -279,6 +320,7 @@ export default function DashboardPage({ socket }) {
               placeholder="Say something!"
               ref={messageRef}
               disabled={!chatroomId}
+              onChange={typingMessage}
             />
           </form>
         </div>

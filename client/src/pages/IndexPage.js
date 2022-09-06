@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Card from "./components/Card";
+import CardTwo from "./components/CardTwo";
 export default function IndexPage(props) {
   // const navigate = useNavigate();
   // React.useEffect(() => {
@@ -52,11 +53,9 @@ export default function IndexPage(props) {
             <div className="sun"></div>
           </div>
           <div className="cloud"></div>
-
           <div className="title-holder">
             <h1 className="">Welcome To Dizcord</h1>
           </div>
-
           <div className="description-holder">
             <p className="description">
               Dizcord is a web chatting application that allows you to chat with
@@ -64,10 +63,11 @@ export default function IndexPage(props) {
             </p>
           </div>
           <Card />
+          <br />
+
           <div className="moon-container">
             <div className="moon"></div>
           </div>
-
           <br />
           <div className="gray-cloud-container">
             <div className="cloud gray-cloud"></div>
@@ -76,12 +76,17 @@ export default function IndexPage(props) {
           <div className="gray-cloud-container">
             <div className="cloud gray-cloud1"></div>
           </div>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <CardTwo />
 
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
           <br />
           <br />
           <br />

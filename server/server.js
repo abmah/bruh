@@ -86,5 +86,17 @@ io.on("connection", (socket) => {
       await newMessage.save();
     }
   });
+  socket.on("typingMessage", async ({ chatroomId, message }) => {
+    const user = await User.findOne({ _id: socket.userId });
+    console.log(
+      `user data is :  ${message} written by ${user.name} and the chatroom is ${chatroomId}`
+    );
+
+    io.to(chatroomId).emit("typing", {
+      message,
+      name: user.name,
+      userId: socket.userId,
+    });
+  });
 });
 // there is a problem with the above code that is causing some messages to have the same user id even though they are from different users.

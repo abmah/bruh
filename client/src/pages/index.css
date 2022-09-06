@@ -28,7 +28,7 @@ body {
   color: rgb(0, 169, 207);
   background-color: #ffffff;
 }
-
+/*hello*/
 #background-wrap {
   bottom: 0;
   left: 0;
@@ -133,6 +133,8 @@ p {
   background-color: rgb(44, 66, 66);
 }
 
+/*lol css */
+
 @keyframes move {
   0% {
     transform: translateX(0);
@@ -229,7 +231,7 @@ a {
 .app-card {
   height: 60vh;
   /* background-color: red; */
-  margin-bottom: 80vh;
+  margin-bottom: 30vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -315,9 +317,6 @@ a {
   transform: scale(0.95);
 }
 
-side-bar-message-container1 {
-}
-
 .footer {
   display: flex;
   justify-content: center;
@@ -349,4 +348,34 @@ br {
   }
 }
 
-@med
+.x2 {
+  width: 70vw;
+  height: 5vh;
+  margin-top: 20px;
+  flex-direction: column;
+  animation: shaking 8s infinite;
+  max-width: 500px;
+  margin-left: 20px;
+}
+
+.card-name {
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+
+.flex-end {
+  display: flex;
+
+  justify-content: flex-end;
+}
+
+.xv3 {
+  overflow: hidden;
+}
