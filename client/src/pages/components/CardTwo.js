@@ -1,8 +1,27 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
+// import { useRef } from "react";
+import { useInView } from "react-intersection-observer";
 export default function CardTwo() {
+  // const showRef = useRef();
+  // const [show, setShow] = React.useState(false);
+  // console.log(show);
+
+  // React.useEffect(() => {
+  //   const observer = new IntersectionObserver((entries) => {
+  //     const entry = entries[0];
+  //     setShow(entry.isIntersecting);
+  //     // console.log(entry);
+  //   });
+  //   observer.observe(showRef.current);
+  // }, []);
+
+  const { ref: bruhRef, inView } = useInView();
   return (
-    <div className="app-card app-card2">
+    <div
+      ref={bruhRef}
+      className={`app-card app-card2 ${inView ? "bruhmom" : "bruhdad"}`}
+    >
       <h2>See messages being typed in real time!</h2>
       <div className="example-card">
         <div className="group-messages xv3">

@@ -3,6 +3,7 @@ import RegisterPage from "./pages/RegisterPage";
 import DashboardPage from "./pages/DashboardPage";
 import LoginPage from "./pages/LoginPage";
 import IndexPage from "./pages/IndexPage";
+import AboutPage from "./pages/AboutPage";
 // import ChatroomPage from "../../unusedfiles/ChatroomPage";
 import io from "socket.io-client";
 // import makeToast from "./Toaster";
@@ -56,6 +57,7 @@ function App() {
         <Route path="/login" element={<LoginPageWrapper />} exact />
         <Route path="/dashboard" element={<DashboardPageWrapper />} exact />
         <Route path="/register" element={<RegisterPage />} exact />
+        <Route path="/about" element={<AboutPage />} exact />
         <Route path="/reset" element={<DeleteJwt />} exact />
       </Routes>
     </BrowserRouter>

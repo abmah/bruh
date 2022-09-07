@@ -1,11 +1,11 @@
 import React from "react";
-
+import { useInView } from "react-intersection-observer";
 export default function Card() {
   // Create the observer, same as before:
+  const { ref: card, inView } = useInView({});
 
   return (
-    <div className="app-card">
-      <h2>Start chatting in seconds</h2>
+    <div ref={card} className={`app-card ${inView ? "card-in" : "card-out"}`}>
       <div className="example-card">
         <div className="card-sidebar">
           <div className="card-side-name">mark</div>

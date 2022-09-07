@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Card from "./components/Card";
 import CardTwo from "./components/CardTwo";
+import { useInView } from "react-intersection-observer";
 export default function IndexPage(props) {
   // const navigate = useNavigate();
   // React.useEffect(() => {
@@ -14,6 +15,9 @@ export default function IndexPage(props) {
   // }, []);
 
   // background color logic
+
+  // create the observer
+  const { ref: titleSlid, inView } = useInView();
   const [scrollInPixels, setScrollInPixels] = React.useState(0);
   window.addEventListener("scroll", () => {
     setScrollInPixels(Math.floor(window.scrollY));
@@ -39,12 +43,20 @@ export default function IndexPage(props) {
         <div style={divStyle} id="background-wrap">
           <div>
             <div className="header">
-              <Link className="header-link" to="/login">
-                Login
-              </Link>
-              <Link className="header-link" to="/register">
-                register
-              </Link>
+              <div>
+                {" "}
+                <Link className="header-link" to="/about">
+                  About
+                </Link>
+              </div>
+              <div>
+                <Link className="header-link" to="/login">
+                  Login
+                </Link>
+                <Link className="header-link" to="/register">
+                  Register
+                </Link>
+              </div>
 
               {/* <a href="/login">Login</a> <a href="/register">register</a> */}
             </div>
@@ -62,8 +74,14 @@ export default function IndexPage(props) {
               your friends and family.
             </p>
           </div>
-          <Card />
           <br />
+          <h2
+            ref={titleSlid}
+            className={`secondary-title ${inView ? "slide-in" : "slide-out"}`}
+          >
+            Start chatting in seconds
+          </h2>
+          <Card />
 
           <div className="moon-container">
             <div className="moon"></div>
