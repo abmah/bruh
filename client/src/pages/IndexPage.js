@@ -17,7 +17,7 @@ export default function IndexPage(props) {
   // background color logic
 
   // create the observer
-  const { ref: titleSlid, inView } = useInView();
+  const { ref: titleSlid, inView } = useInView({ threshold: 0.4 });
   const [scrollInPixels, setScrollInPixels] = React.useState(0);
   window.addEventListener("scroll", () => {
     setScrollInPixels(Math.floor(window.scrollY));

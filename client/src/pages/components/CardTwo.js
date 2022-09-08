@@ -16,7 +16,7 @@ export default function CardTwo() {
   //   observer.observe(showRef.current);
   // }, []);
 
-  const { ref: bruhRef, inView } = useInView();
+  const { ref: bruhRef, inView } = useInView({ threshold: 0.2 });
   return (
     <div
       ref={bruhRef}

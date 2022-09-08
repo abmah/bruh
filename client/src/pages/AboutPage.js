@@ -19,7 +19,7 @@ export default function AboutPage() {
           <li>express js</li>
           <li>socket io</li>
         </ul>
-        Hover for more
+       
       </div>
       <div className="more-about">
         Dizcord is a web chatting application with exceptional features like
