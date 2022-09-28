@@ -1,4 +1,6 @@
 # dizcord
+An online chat program that sends messages in real time and continuously updates messages typed.
+
 <img src="https://raw.githubusercontent.com/abmah/portfolio-react/master/src/images/dizcord.gif" />
 
 to set up cd into the server folder and make a .env file.
